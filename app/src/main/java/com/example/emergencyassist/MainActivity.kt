@@ -96,13 +96,13 @@ class MainActivity : Activity() {
         val nameInput = EditText(this).apply {
             hint = "Contact name (e.g. Mom)"
             setHintTextColor(muted)
-            setTextColor(text)
+            setTextColor(this@MainActivity.text)
             setSingleLine(true)
         }
         val phoneInput = EditText(this).apply {
             hint = "WhatsApp number with country code"
             setHintTextColor(muted)
-            setTextColor(text)
+            setTextColor(this@MainActivity.text)
             inputType = android.text.InputType.TYPE_CLASS_PHONE
             setSingleLine(true)
         }
@@ -153,7 +153,7 @@ class MainActivity : Activity() {
         val t = TextView(this).apply {
             text = label
             textSize = 19f
-            setTextColor(text)
+            setTextColor(this@MainActivity.text)
             setPadding(0, dp(18), 0, dp(8))
         }
         root.addView(t)
@@ -214,7 +214,7 @@ class MainActivity : Activity() {
             val check = CheckBox(this).apply {
                 text = "${contact.name}\n+${contact.phone}"
                 textSize = 14f
-                setTextColor(text)
+                setTextColor(this@MainActivity.text)
                 isChecked = selectedIds.contains(contact.id)
                 setOnCheckedChangeListener { _, checked ->
                     if (checked) selectedIds.add(contact.id)
